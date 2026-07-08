@@ -1,0 +1,70 @@
+
+ {
+    "productName": "Dev Desk",
+    "appId": "com.devdesk.app",
+    "asar": true,
+    "npmRebuild": false,
+    "directories": {
+        "output": "release/${version}"
+    },
+    // 打包进 asar
+    "files": [
+        "assets/**/*",
+        "dist/**/*",
+        "dist-electron/**/*",
+        "migrations/**/*",
+        ".env.production"
+    ],
+     // 将 a 从asar 复制到外部目录(resource)
+    "extraResources": [
+    //  {
+      //  "from": "a",
+     //   "to": "a"
+     // }
+    ],
+     // 将 asar内部 目录提取(复制)到外部即resource/app.asar.unpacked目录
+    "asarUnpack": [
+      "node_modules/better-sqlite3/**/*"
+    ],
+    "electronDownload": {
+        "mirror": "https://npmmirror.com/mirrors/electron/"
+    },
+    "mac": {
+        // mac下图标 需制作icns格式
+        "icon": "assets/icon/icon.icns",
+        "target": [
+            "dmg"
+        ]
+    },
+    "dmg": {
+        "contents": [{
+                "x": 410,
+                "y": 150,
+                "type": "link",
+                "path": "/Applications"
+            },
+            {
+                "x": 130,
+                "y": 150,
+                "type": "file"
+            }
+        ]
+    },
+    "win": {
+        "icon": "assets/icon/tray.png",
+        "signAndEditExecutable": false,
+        "target": [{
+            "target": "nsis",
+            "arch": [
+                "x64"
+            ]
+        }],
+        "artifactName": "${productName}_${version}.${ext}"
+    },
+    "nsis": {
+        "oneClick": false,
+        "perMachine": false,
+        "allowToChangeInstallationDirectory": true,
+        "deleteAppDataOnUninstall": true
+    }
+}
