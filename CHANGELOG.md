@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.3
+## 0.1.0
 
 - Renamed the app to Dev Desk.
 - Added JSON, timestamp, codec, UUID, hash, JWT and regex tools.

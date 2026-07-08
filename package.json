@@ -1,7 +1,7 @@
 {
   "name": "dev-desk",
   "private": true,
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "A local developer toolbox built with Electron, Vue, SQLite and Drizzle.",
   "author": "Dev Desk contributors",
   "license": "MIT",
